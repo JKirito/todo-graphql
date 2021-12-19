@@ -1,6 +1,6 @@
 import React from "react";
 import Head from "next/head";
-import styles from "../styles/Home.module.css";
+// import styles from "../styles/Home.module.css";
 import Home from "../components/Home";
 /**
  *
@@ -8,7 +8,7 @@ import Home from "../components/Home";
  */
 export default function App() {
   return (
-    <div className={styles.container}>
+    <div className="">
       <Head>
         <title>Simplified Todo</title>
         <meta
@@ -17,8 +17,18 @@ export default function App() {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div>
-        <Home />
+      <div className="min-h-screen bg-gradient-to-br from-pink-200 to-violet-300 flex justify-center items-center">
+        <div className="bg-white rounded-lg p-6 shadow-md">
+          <div>
+            <input
+              type="text"
+              name=""
+              id=""
+              className="shadow appearance-none border rounded w-full py-2 pl-2"
+            />
+          </div>
+          <p>CENTER</p>
+        </div>
       </div>
     </div>
   );
