@@ -1,14 +1,41 @@
-import React from "react";
+import React, { useState } from "react";
 import Head from "next/head";
+import List from "../components/List";
+import { ListContext } from "../state/States";
 // import styles from "../styles/Home.module.css";
-import Home from "../components/Home";
+// import Home from "../components/Home";
 /**
  *
  * @return {JSX.Element}: The JSX code for Home Page
  */
+
+interface StoreType {
+  tasks: {
+    completed: boolean;
+    task: string;
+    id: number;
+  }[];
+}
+
+const Store: StoreType = {
+  tasks: [
+    {
+      task: "Test",
+      completed: false,
+      id: 1,
+    },
+  ],
+};
+
+// eslint-disable-next-line valid-jsdoc
+/**
+ *
+ * @returns {}
+ */
 export default function App() {
+  const [store, setStore] = useState(Store);
   return (
-    <div className="">
+    <ListContext.Provider value={{ store, setStore }}>
       <Head>
         <title>Simplified Todo</title>
         <meta
@@ -27,9 +54,9 @@ export default function App() {
               className="shadow appearance-none border rounded w-full py-2 pl-2"
             />
           </div>
-          <p>CENTER</p>
+          <List />
         </div>
       </div>
-    </div>
+    </ListContext.Provider>
   );
 }
